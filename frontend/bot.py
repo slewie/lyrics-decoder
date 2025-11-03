@@ -10,7 +10,7 @@ from telegram.ext import (
     ConversationHandler,
 )
 
-from service.analyze_service import AnylyzeService
+from frontend.service.analyze_service import AnylyzeService
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO

@@ -1,6 +1,8 @@
 from textwrap import dedent
 from langchain.prompts import ChatPromptTemplate
 
+
+# TODO: make prompts for different languages
 summarize_template = ChatPromptTemplate.from_template(
     dedent(
         """

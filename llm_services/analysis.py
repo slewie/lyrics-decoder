@@ -6,7 +6,8 @@ from .prompts import summarize_template, collect_artist_info_template
 
 
 async def collect_artist_info(artist_name: str):
-    # TODO: добавить кеширование
+    # TODO: add caching
+    # TODO: use web search to get artist info
     artist_info_chain = collect_artist_info_template | llm | StrOutputParser()
     return await artist_info_chain.ainvoke({"artist_name": artist_name})
 
@@ -18,8 +19,7 @@ async def generate_summary(lyrics: str, artist_info: str):
 
 async def interpret_lyrics(song_name: str, artist_name: str, lyrics: str) -> Dict:
     """
-    1) Генерируем сводку по всему тексту
-    2) По-строчные трактовки (берём первые 10 непустых)
+    1) Generate summary of the whole text
     """
 
     artist_info = await collect_artist_info(artist_name)
